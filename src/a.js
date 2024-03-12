@@ -31,30 +31,22 @@ function JuniorEngineer(health, intelligence) {
 }
 
 // // 여기에 코드를 작성하세요
-function work() {
+
+Worker.prototype.work = function () {
   this._health--;
   this._intelligence++;
-}
-
-function getHealth() {
+};
+Worker.prototype.getHealth = function () {
   return this._health;
-}
-
-function setHealth(num) {
-  //Worker.call(this, num);
-}
-
-function getIntelligence() {
-  return this._intelligence;
-}
-
-Worker.call(this, 10);
-Worker.prototype.work = work;
-Worker.prototype.getHealth = getHealth;
-Worker.prototype._super = setHealth;
+};
+Worker.prototype._super = function (num) {
+  this._health = num;
+};
 
 JuniorEngineer.prototype = new Worker();
-JuniorEngineer.prototype.getIntelligence = getIntelligence;
+JuniorEngineer.prototype.getIntelligence = function () {
+  return this._intelligence;
+};
 
 /**
  * ## 문제 A - 추가문제
