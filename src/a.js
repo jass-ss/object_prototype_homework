@@ -47,6 +47,9 @@ JuniorEngineer.prototype = new Worker();
 JuniorEngineer.prototype.getIntelligence = function () {
   return this._intelligence;
 };
+// JuniorEngineer.prototype.isBornGenius = function () {
+//   return this._isBornGenius ?? false;
+// };
 
 /**
  * ## 문제 A - 추가문제
@@ -83,7 +86,7 @@ JuniorEngineer.prototype.getIntelligence = function () {
 
 // main();
 
-module.exports = {
-  Worker,
-  JuniorEngineer,
-};
+// module.exports = {
+//   Worker,
+//   JuniorEngineer,
+// };
