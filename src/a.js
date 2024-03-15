@@ -23,10 +23,13 @@ function Worker(health) {
 }
 
 function JuniorEngineer(health, intelligence) {
-  this._super(health);
   this._intelligence = intelligence ?? 1;
+  this._isBornGenius;
+  this._super(health);
   if (this._intelligence > 10) {
     this._isBornGenius = true;
+  } else {
+    this._isBornGenius = false;
   }
 }
 
@@ -47,9 +50,9 @@ JuniorEngineer.prototype = new Worker();
 JuniorEngineer.prototype.getIntelligence = function () {
   return this._intelligence;
 };
-// JuniorEngineer.prototype.isBornGenius = function () {
-//   return this._isBornGenius ?? false;
-// };
+JuniorEngineer.prototype.isBornGenius = function () {
+  return this._isBornGenius ?? false;
+};
 
 /**
  * ## 문제 A - 추가문제
@@ -84,7 +87,19 @@ JuniorEngineer.prototype.getIntelligence = function () {
 //   console.log(endTime - startTime);
 // }
 
-// main();
+function main() {
+  var startTime = performance.now();
+  for (var i = 0; i < 10000000; i++) {
+    const random = Math.floor(Math.random() * 20);
+    const a = new JuniorEngineer(10, random);
+    a.isBornGenius();
+  }
+  var endTime = performance.now();
+
+  console.log(endTime - startTime);
+}
+
+main();
 
 // module.exports = {
 //   Worker,
